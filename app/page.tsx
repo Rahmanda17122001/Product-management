@@ -5,19 +5,23 @@ import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
 import Addproductpage from './pages/Addproductpage';
 import AppRoutes from './components/AppRoutes';
+import { ProductProvider } from './context/ProductContext';
 
 export default function Home() {
   return (
-    <Router>
-      <div className="flex flex-row min-h-screen min-w-full bg-slate-300 text-slate-950">
-        <div className="flex-basis-1/6">
-          <Sidebar/>
+    <ProductProvider>
+      <Router>
+        <div className="flex flex-row min-h-screen min-w-full bg-slate-300 text-slate-950">
+          <div className="flex-basis-1/6">
+            <Sidebar/>
+          </div>
+          <div className="grow p-4">
+            <AppRoutes/>
+          </div> 
         </div>
-        <div className="grow p-4">
-          <AppRoutes/>
-        </div> 
-      </div>
-    </Router>
+      </Router>
+    </ProductProvider>
+    
 
   );
 }

@@ -1,17 +1,19 @@
 "use client"
 
+import { useProductContext } from '../context/ProductContext';
 import { ProductControllers } from "../controllers/ProductControllers";
+import {Product} from '../models/Product';
 
 
 const Dashboard: React.FC = () => {
-    const {products, loading, error} = ProductControllers();
+    const { products } = useProductContext();
 
     return(
         <div className="p-4 bg-white h-fit rounded-lg">
             <h1 className="flex text-xl font-bold text-black mb-4">Product List</h1>
-            <div className='flex overflow-scroll bg-red-500'>
+            <div className='flex max-h-96 overflow-auto rounded-lg shadow-lg'>
                 <table className="table min-w-full bg-gray-800 rounded-lg">
-                <thead>
+                <thead className="sticky top-0">
                     <tr className="bg-gray-700">
                         <th className="py-3 px-4 text-left text-gray-300">Nama</th>
                         <th className="py-3 px-4 text-left text-gray-300">Harga Beli</th>
@@ -32,6 +34,8 @@ const Dashboard: React.FC = () => {
                     ))}
                 </tbody>
             </table></div>
+            <h1 className="flex text-xl mt-10 font-bold text-black mb-4">Recent Activity</h1>
+
         </div>
     )
 }

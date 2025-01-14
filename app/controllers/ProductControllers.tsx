@@ -9,6 +9,7 @@ export const ProductControllers = () => {
 
     const addProduct = async (newProduct : Product)=>{
         setLoading(true)
+        await new Promise((resolve) => setTimeout(resolve, 500)); 
         setProduct(prevProduct => [...prevProduct, newProduct])
         setLoading(false)
     }
@@ -19,5 +20,5 @@ export const ProductControllers = () => {
         setLoading(false)
     }
 
-    return{products, loading, error};
+    return{products, loading, error, addProduct};
 } 
