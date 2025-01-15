@@ -8,8 +8,10 @@ const AppRoutes: React.FC = () => {
         <div>
             <Routes>
               <Route path="/" element={<Dashboard/>} />
+              <Route path="/dashboard" element={<Dashboard/>} />
               <Route path="/product" element={<Addproductpage/>} />
               <Route path="/NewProduct" element={<NewProduct/>} />
+              <Route path="/*" element={<Dashboard/>} />
             </Routes>
         </div>
     )
